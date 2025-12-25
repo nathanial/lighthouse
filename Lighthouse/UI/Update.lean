@@ -75,10 +75,10 @@ def handleGlobalKeys (state : AppState) (key : KeyEvent) : Option (AppState × B
     | _ => none
 
 /-- Main update function -/
-def update (state : AppState) (keyEvent : Option KeyEvent) : AppState × Bool :=
-  match keyEvent with
+def update (state : AppState) (event : Option Event) : AppState × Bool :=
+  match event with
   | none => (state, false)  -- No input this frame
-  | some key =>
+  | some (.key key) =>
     -- Try global keys first
     match handleGlobalKeys state key with
     | some result => result
@@ -90,5 +90,6 @@ def update (state : AppState) (keyEvent : Option KeyEvent) : AppState × Bool :=
         | .attribute => Views.Attribute.update state key
         | .query => Views.Query.update state key
       (newState, false)
+  | _ => (state, false)  -- Ignore mouse/resize events for now
 
 end Lighthouse.UI.Update
