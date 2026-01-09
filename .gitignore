@@ -18,4 +18,3 @@ build/
 *.trace
 *.log
 .lake
-lake-manifest.json
