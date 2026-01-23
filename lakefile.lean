@@ -6,7 +6,7 @@ package lighthouse where
 
 require terminus from git "https://github.com/nathanial/terminus" @ "v0.0.2"
 require ledger from git "https://github.com/nathanial/ledger" @ "v0.0.2"
-require crucible from git "https://github.com/nathanial/crucible" @ "v0.0.8"
+require crucible from git "https://github.com/nathanial/crucible" @ "v0.0.9"
 
 @[default_target]
 lean_lib Lighthouse where
